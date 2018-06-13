@@ -10,12 +10,12 @@
 		4C8BD1C61EC851DA00E0BACF /* Pastel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8BD1BC1EC851DA00E0BACF /* Pastel.framework */; };
 		4C8BD1CB1EC851DA00E0BACF /* PastelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8BD1CA1EC851DA00E0BACF /* PastelTests.swift */; };
 		4C8BD1CD1EC851DA00E0BACF /* Pastel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C8BD1BF1EC851DA00E0BACF /* Pastel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CADB8DB1EC852F700873CC9 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 4CADB8D71EC852F700873CC9 /* .gitkeep */; };
 		4CADB8DC1EC852F700873CC9 /* PastelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADB8D81EC852F700873CC9 /* PastelView.swift */; };
-		4CADB8DD1EC852F700873CC9 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 4CADB8DA1EC852F700873CC9 /* .gitkeep */; };
 		4CBCC0B71ECDE0F600B8522C /* PastelGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBCC0B61ECDE0F600B8522C /* PastelGradient.swift */; };
 		50FD0037201FD1C90076A8B6 /* PastelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD0035201FD1C90076A8B6 /* PastelPoint.swift */; };
 		50FD0038201FD1C90076A8B6 /* PastelLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD0036201FD1C90076A8B6 /* PastelLabel.swift */; };
+		C812F3C220D12916001E3CC9 /* PastelView+Objc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C812F3C120D12916001E3CC9 /* PastelView+Objc.swift */; };
+		C812F3C520D12B1E001E3CC9 /* ObjCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C812F3C420D12B1E001E3CC9 /* ObjCTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,10 @@
 		4CBCC0B61ECDE0F600B8522C /* PastelGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastelGradient.swift; sourceTree = "<group>"; };
 		50FD0035201FD1C90076A8B6 /* PastelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastelPoint.swift; sourceTree = "<group>"; };
 		50FD0036201FD1C90076A8B6 /* PastelLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastelLabel.swift; sourceTree = "<group>"; };
+		C812F3C020D123E6001E3CC9 /* Pastel.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pastel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C812F3C120D12916001E3CC9 /* PastelView+Objc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastelView+Objc.swift"; sourceTree = "<group>"; };
+		C812F3C320D12B1E001E3CC9 /* PastelTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PastelTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		C812F3C420D12B1E001E3CC9 /* ObjCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 		4C8BD1B21EC851DA00E0BACF = {
 			isa = PBXGroup;
 			children = (
+				C812F3C020D123E6001E3CC9 /* Pastel.podspec */,
 				4C8BD1BE1EC851DA00E0BACF /* Pastel */,
 				4C8BD1C91EC851DA00E0BACF /* PastelTests */,
 				4C8BD1BD1EC851DA00E0BACF /* Products */,
@@ -96,6 +101,8 @@
 			children = (
 				4C8BD1CC1EC851DA00E0BACF /* Info.plist */,
 				4C8BD1CA1EC851DA00E0BACF /* PastelTests.swift */,
+				C812F3C420D12B1E001E3CC9 /* ObjCTest.m */,
+				C812F3C320D12B1E001E3CC9 /* PastelTests-Bridging-Header.h */,
 			);
 			path = PastelTests;
 			sourceTree = "<group>";
@@ -108,6 +115,7 @@
 				50FD0036201FD1C90076A8B6 /* PastelLabel.swift */,
 				50FD0035201FD1C90076A8B6 /* PastelPoint.swift */,
 				4CADB8D81EC852F700873CC9 /* PastelView.swift */,
+				C812F3C120D12916001E3CC9 /* PastelView+Objc.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -188,7 +196,7 @@
 					};
 					4C8BD1C41EC851DA00E0BACF = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -216,8 +224,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CADB8DB1EC852F700873CC9 /* .gitkeep in Resources */,
-				4CADB8DD1EC852F700873CC9 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +245,7 @@
 				50FD0038201FD1C90076A8B6 /* PastelLabel.swift in Sources */,
 				4CBCC0B71ECDE0F600B8522C /* PastelGradient.swift in Sources */,
 				4CADB8DC1EC852F700873CC9 /* PastelView.swift in Sources */,
+				C812F3C220D12916001E3CC9 /* PastelView+Objc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8BD1CB1EC851DA00E0BACF /* PastelTests.swift in Sources */,
+				C812F3C520D12B1E001E3CC9 /* ObjCTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,10 +434,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PastelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Cruz.PastelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PastelTests/PastelTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
@@ -439,10 +450,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PastelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Cruz.PastelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PastelTests/PastelTests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};

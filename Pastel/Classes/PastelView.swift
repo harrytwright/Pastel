@@ -17,7 +17,7 @@ open class PastelView: UIView {
     }
     
     //MARK: - Custom Direction
-
+    
     @objc open var startPoint: CGPoint = Point.topRight.point
 
     @objc open var endPoint: CGPoint = Point.bottomLeft.point
@@ -89,19 +89,19 @@ open class PastelView: UIView {
                 colors[(currentGradient + 1) % colors.count].cgColor]
     }
     
-    @objc public func setColors(_ colors: [UIColor]) {
+    private func _setColors(_ colors: [UIColor]) {
         guard colors.count > 0 else { return }
         self.colors = colors
     }
-    
-    @objc public func setPastelGradient(_ gradient: Gradient) {
-        setColors(gradient.colors)
+
+    @objc public func setGradient(_ gradient: Gradient) {
+        _setColors(gradient.rawValue)
     }
     
-    @objc public func addcolor(_ color: UIColor) {
-        self.colors.append(color)
-    }
-    
+//    @objc public func addcolor(_ color: UIColor) {
+//        self.colors.append(color)
+//    }
+
     func animateGradient() {
         currentGradient += 1
         let animation = CABasicAnimation(keyPath: Animation.keyPath)
