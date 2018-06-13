@@ -24,12 +24,20 @@ public struct Gradient: RawRepresentable {
 
 }
 
-extension Gradient: ExpressibleByArrayLiteral {
+extension Gradient: ExpressibleByArrayLiteral, CustomStringConvertible, CustomDebugStringConvertible, Hashable {
 
     public typealias ArrayLiteralElement = UIColor
 
     public init(arrayLiteral elements: UIColor...) {
         self.init(elements)
+    }
+
+    public var description: String {
+        return self.rawValue.description
+    }
+
+    public var debugDescription: String {
+        return self.rawValue.debugDescription
     }
 
 }

@@ -11,7 +11,9 @@ import UIKit
 /* Life would be so much eaiser if RawRepresentable struct could port to Objc like the port from */
 
 @available(swift, introduced: 1.0, deprecated: 1.0)
-extension Gradient: _ObjectiveCBridgeable {
+extension Gradient: ReferenceConvertible {
+
+    public typealias ReferenceType = PVPastelGradient
 
     public typealias _ObjectiveCType = PVPastelGradient
 
@@ -38,15 +40,19 @@ extension Gradient: _ObjectiveCBridgeable {
 
 @available(swift, introduced: 1.0, deprecated: 1.0, renamed: "Gradient")
 @objc(PVPastelGradient)
-public class PVPastelGradient: NSObject {
+public class PVPastelGradient: NSObject, NSCopying {
 
-    public private(set) var colors: [UIColor]
+    @objc public private(set) var colors: [UIColor]
 
-    public init(colors: [UIColor]) {
+    @objc public init(colors: [UIColor]) {
         self.colors = colors
     }
 
-    public static func gradientWithColors(_ colors: [UIColor]) -> PVPastelGradient {
+    @objc public func copy(with zone: NSZone? = nil) -> Any {
+        return PVPastelGradient(colors: self.colors)
+    }
+
+    @objc public static func gradientWithColors(_ colors: [UIColor]) -> PVPastelGradient {
         return PVPastelGradient(colors: colors)
     }
 
