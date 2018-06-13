@@ -23,7 +23,26 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 
     PVPastelView *view = [[PVPastelView alloc] initWithFrame:CGRectZero];
-    [view setGradient:[PVPastelGradient dustyGrass]];
+
+    view.startPastelPoint = PVPastelPointBottomLeft;
+    view.endPastelPoint = PVPastelPointTopLeft;
+
+    view.animationDuration = 3;
+
+    [view setGradient:[PVPastelGradient youngPassion]];
+
+    NSArray<UIColor *> *colors = @[
+                                   [UIColor colorWithRed: 156/255 green: 39/255 blue: 176/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 255/255 green: 64/255 blue: 129/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 123/255 green: 31/255 blue: 162/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 32/255 green: 76/255 blue: 255/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 32/255 green: 158/255 blue: 255/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 90/255 green: 120/255 blue: 127/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 58/255 green: 255/255 blue: 217/255 alpha: 1.0]
+                                   ];
+    [view setGradient:[PVPastelGradient gradientWithColors:colors]];
+
+    [view startAnimation];
 }
 
 - (void)testExample {

@@ -13,6 +13,11 @@
 ![pastel_03.gif](README/Pastel_03.gif)
 
 ## Example
+
+Support of Objective-C is now paramount.
+
+### Swift
+
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,18 +31,51 @@ override func viewDidLoad() {
     // Custom Duration
     pastelView.animationDuration = 3.0
 
-    // Custom Color
-    pastelView.setColors([UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0),
-                          UIColor(red: 255/255, green: 64/255, blue: 129/255, alpha: 1.0),
-                          UIColor(red: 123/255, green: 31/255, blue: 162/255, alpha: 1.0),
-                          UIColor(red: 32/255, green: 76/255, blue: 255/255, alpha: 1.0),
-                          UIColor(red: 32/255, green: 158/255, blue: 255/255, alpha: 1.0),
-                          UIColor(red: 90/255, green: 120/255, blue: 127/255, alpha: 1.0),
-                          UIColor(red: 58/255, green: 255/255, blue: 217/255, alpha: 1.0)])
+    // Custom Color using the preset Gradient's 
+    pastelView.setGradient(.youngPassion)
+    // Or using Array literal
+    pastelView.setGradient([
+        UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0),
+        UIColor(red: 255/255, green: 64/255, blue: 129/255, alpha: 1.0),
+        UIColor(red: 123/255, green: 31/255, blue: 162/255, alpha: 1.0),
+        UIColor(red: 32/255, green: 76/255, blue: 255/255, alpha: 1.0),
+        UIColor(red: 32/255, green: 158/255, blue: 255/255, alpha: 1.0),
+        UIColor(red: 90/255, green: 120/255, blue: 127/255, alpha: 1.0),
+        UIColor(red: 58/255, green: 255/255, blue: 217/255, alpha: 1.0)
+    ])
 
     pastelView.startAnimation()
     view.insertSubview(pastelView, at: 0)
 }
+```
+
+```objective-c
+- (void)viewDidLoad {
+    PVPastelView *view = [[PVPastelView alloc] initWithFrame:CGRectZero];
+
+    // Custom Direction
+    view.startPastelPoint = PVPastelPointBottomLeft;
+    view.endPastelPoint = PVPastelPointTopLeft;
+
+    // Custom Duration
+    view.animationDuration = 3;
+
+    // Custom Color using the preset Gradient's
+    [view setGradient:[PVPastelGradient youngPassion]];
+    // Or using `+[PVPastelGradient gradientWithColors:]`
+    NSArray<UIColor *> *colors = @[
+                                   [UIColor colorWithRed: 156/255 green: 39/255 blue: 176/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 255/255 green: 64/255 blue: 129/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 123/255 green: 31/255 blue: 162/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 32/255 green: 76/255 blue: 255/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 32/255 green: 158/255 blue: 255/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 90/255 green: 120/255 blue: 127/255 alpha: 1.0],
+                                   [UIColor colorWithRed: 58/255 green: 255/255 blue: 217/255 alpha: 1.0]
+                                  ];
+    [view setGradient:[PVPastelGradient gradientWithColors:colors]];
+
+    [view startAnimation];
+    }
 ```
 
 ## 🎨 Customize Gradient Colors
@@ -47,7 +85,7 @@ override func viewDidLoad() {
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-Pastel is written in Swift 4. iOS 8.0+ Required
+Pastel is written in Swift 4.2. iOS 8.0+ Required (Swift 4 is supported)
 
 ## Installation
 
