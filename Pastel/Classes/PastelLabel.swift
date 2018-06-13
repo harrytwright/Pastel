@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc(PVPastelLabelable)
 public protocol PastelLabelable {
     var text: String? { get set }
     var font: UIFont? { get set }
@@ -15,30 +16,32 @@ public protocol PastelLabelable {
     var attributedText: NSAttributedString? { get set }
 }
 
+@objc(PVPastelLabel)
 open class PastelLabel: PastelView, PastelLabelable {
+    
     private let label = UILabel()
     
     //MARK: - PastelLabelable
 
-    open var text: String? {
+    @objc open var text: String? {
         didSet {
             label.text = text
         }
     }
     
-    open var font: UIFont? {
+    @objc open var font: UIFont? {
         didSet {
             label.font = font
         }
     }
     
-    open var attributedText: NSAttributedString? {
+    @objc open var attributedText: NSAttributedString? {
         didSet {
             label.attributedText = attributedText
         }
     }
     
-    open var textAlignment: NSTextAlignment = .center {
+    @objc open var textAlignment: NSTextAlignment = .center {
         didSet {
             label.textAlignment = textAlignment
         }

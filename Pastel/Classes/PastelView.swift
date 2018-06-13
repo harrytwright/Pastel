@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc(PVPastelView)
 open class PastelView: UIView {
 
     private struct Animation {
@@ -17,16 +18,17 @@ open class PastelView: UIView {
     
     //MARK: - Custom Direction
 
-    open var startPoint: CGPoint = PastelPoint.topRight.point
-    open var endPoint: CGPoint = PastelPoint.bottomLeft.point
+    @objc open var startPoint: CGPoint = Point.topRight.point
+
+    @objc open var endPoint: CGPoint = Point.bottomLeft.point
     
-    open var startPastelPoint = PastelPoint.topRight {
+    @objc open var startPastelPoint: Point = .topRight {
         didSet {
             startPoint = startPastelPoint.point
         }
     }
     
-    open var endPastelPoint = PastelPoint.bottomLeft {
+    @objc open var endPastelPoint: Point = .bottomLeft {
         didSet {
             endPoint = endPastelPoint.point
         }
@@ -34,17 +36,19 @@ open class PastelView: UIView {
     
     //MARK: - Custom Duration
 
-    open var animationDuration: TimeInterval = 5.0
+    @objc open var animationDuration: TimeInterval = 5.0
     
     fileprivate let gradient = CAGradientLayer()
     private var currentGradient: Int = 0
-    private var colors: [UIColor] = [UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0),
-                             UIColor(red: 255/255, green: 64/255, blue: 129/255, alpha: 1.0),
-                             UIColor(red: 123/255, green: 31/255, blue: 162/255, alpha: 1.0),
-                             UIColor(red: 32/255, green: 76/255, blue: 255/255, alpha: 1.0),
-                             UIColor(red: 32/255, green: 158/255, blue: 255/255, alpha: 1.0),
-                             UIColor(red: 90/255, green: 120/255, blue: 127/255, alpha: 1.0),
-                             UIColor(red: 58/255, green: 255/255, blue: 217/255, alpha: 1.0)]
+    private var colors: [UIColor] = [
+        UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0),
+        UIColor(red: 255/255, green: 64/255, blue: 129/255, alpha: 1.0),
+        UIColor(red: 123/255, green: 31/255, blue: 162/255, alpha: 1.0),
+        UIColor(red: 32/255, green: 76/255, blue: 255/255, alpha: 1.0),
+        UIColor(red: 32/255, green: 158/255, blue: 255/255, alpha: 1.0),
+        UIColor(red: 90/255, green: 120/255, blue: 127/255, alpha: 1.0),
+        UIColor(red: 58/255, green: 255/255, blue: 217/255, alpha: 1.0)
+    ]
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,7 +67,7 @@ open class PastelView: UIView {
         gradient.frame = bounds
     }
     
-    public func startAnimation() {
+    @objc public func startAnimation() {
         gradient.removeAllAnimations()
         setup()
         animateGradient()
@@ -85,16 +89,16 @@ open class PastelView: UIView {
                 colors[(currentGradient + 1) % colors.count].cgColor]
     }
     
-    public func setColors(_ colors: [UIColor]) {
+    @objc public func setColors(_ colors: [UIColor]) {
         guard colors.count > 0 else { return }
         self.colors = colors
     }
     
-    public func setPastelGradient(_ gradient: PastelGradient) {
-        setColors(gradient.colors())
+    @objc public func setPastelGradient(_ gradient: Gradient) {
+        setColors(gradient.colors)
     }
     
-    public func addcolor(_ color: UIColor) {
+    @objc public func addcolor(_ color: UIColor) {
         self.colors.append(color)
     }
     
@@ -103,7 +107,11 @@ open class PastelView: UIView {
         let animation = CABasicAnimation(keyPath: Animation.keyPath)
         animation.duration = animationDuration
         animation.toValue = currentGradientSet()
-        animation.fillMode = .forwards /* Swift 4.2 Fix */
+#if swift(>=4.2)
+        animation.fillMode = .forwards
+#else
+        animation.fillMode = kCAFillModeForwards
+#endif
         animation.isRemovedOnCompletion = false
         animation.delegate = self
         gradient.add(animation, forKey: Animation.key)
