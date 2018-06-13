@@ -46,6 +46,10 @@ public class PVPastelGradient: NSObject {
         self.colors = colors
     }
 
+    public static func gradientWithColors(_ colors: [UIColor]) -> PVPastelGradient {
+        return PVPastelGradient(colors: colors)
+    }
+
     @objc public static private(set) var warmFlame: PVPastelGradient = PVPastelGradient(colors: [#colorLiteral(red: 1, green: 0.6039215686, blue: 0.6196078431, alpha: 1), #colorLiteral(red: 0.9803921569, green: 0.8156862745, blue: 0.768627451, alpha: 1)])
 
     @objc public static private(set) var nightFade: PVPastelGradient = PVPastelGradient(colors: [#colorLiteral(red: 0.631372549, green: 0.5490196078, blue: 0.8196078431, alpha: 1), #colorLiteral(red: 0.9843137255, green: 0.7607843137, blue: 0.9215686275, alpha: 1)])

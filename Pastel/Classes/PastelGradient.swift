@@ -24,6 +24,16 @@ public struct Gradient: RawRepresentable {
 
 }
 
+extension Gradient: ExpressibleByArrayLiteral {
+
+    public typealias ArrayLiteralElement = UIColor
+
+    public init(arrayLiteral elements: UIColor...) {
+        self.init(elements)
+    }
+
+}
+
 extension Gradient {
 
     public static var warmFlame: Gradient = Gradient([#colorLiteral(red: 1, green: 0.6039215686, blue: 0.6196078431, alpha: 1), #colorLiteral(red: 0.9803921569, green: 0.8156862745, blue: 0.768627451, alpha: 1)])

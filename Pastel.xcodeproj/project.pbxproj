@@ -45,6 +45,7 @@
 		C812F3C120D12916001E3CC9 /* PastelView+Objc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastelView+Objc.swift"; sourceTree = "<group>"; };
 		C812F3C320D12B1E001E3CC9 /* PastelTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PastelTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		C812F3C420D12B1E001E3CC9 /* ObjCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCTest.m; sourceTree = "<group>"; };
+		C812F3C620D12F51001E3CC9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				C812F3C020D123E6001E3CC9 /* Pastel.podspec */,
+				C812F3C620D12F51001E3CC9 /* README.md */,
 				4C8BD1BE1EC851DA00E0BACF /* Pastel */,
 				4C8BD1C91EC851DA00E0BACF /* PastelTests */,
 				4C8BD1BD1EC851DA00E0BACF /* Products */,
