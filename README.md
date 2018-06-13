@@ -14,9 +14,11 @@
 
 ## Example
 
-Support of Objective-C is now paramount.
+> Support of Objective-C is now paramount.
 
 ### Swift
+
+With Swift we support Array literals and the use of `RawRepresentable` so you can create your own custom gradients
 
 ```swift
 override func viewDidLoad() {
@@ -49,8 +51,13 @@ override func viewDidLoad() {
 }
 ```
 
+### Objective-C
+
+> Due to the lack of support with `RawRepresentable` swift structs inside Objective-C `PVPastelGradient` is an NSObject that is paired with `Gradient` inside swift so they can be interchangable across Swift and Objective-C like NSString and String
+
 ```objective-c
 - (void)viewDidLoad {
+    [super viewDidLoad];
     PVPastelView *view = [[PVPastelView alloc] initWithFrame:CGRectZero];
 
     // Custom Direction
@@ -75,7 +82,8 @@ override func viewDidLoad() {
     [view setGradient:[PVPastelGradient gradientWithColors:colors]];
 
     [view startAnimation];
-    }
+    [self.view insertSubview:view atIndex:0];
+}
 ```
 
 ## 🎨 Customize Gradient Colors
